@@ -22,15 +22,14 @@ class ShopListAdapter: RecyclerView.Adapter<ShopListAdapter.ShopItemViewHolder>(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShopItemViewHolder {
-       var view: View
-        if (viewType == 0) {
-           view = LayoutInflater.from(parent.context)
-               .inflate(R.layout.item_shop_disabled, parent, false)
-       } else
-       {
-           view = LayoutInflater.from(parent.context)
-               .inflate(R.layout.item_shop_enabled, parent, false)
-       }
+
+       val view = if (viewType == 0) {
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.item_shop_disabled, parent, false)
+        } else {
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.item_shop_enabled, parent, false)
+        }
        return ShopItemViewHolder(view)
     }
 
